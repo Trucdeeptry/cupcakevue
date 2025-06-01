@@ -166,7 +166,7 @@ export default {
         context.dispatch('updateCart', cartData);
         return;
       }
-      await fetch(`${VITE_API_URL}/api/giohang`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/giohang`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -189,7 +189,7 @@ export default {
     },
     async deleteProduct(context, { id, disableToast }) {
       const toast = getToastInstance();
-      await fetch(`${VITE_API_URL}/api/giohang/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/giohang/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ export default {
       const userId = context.rootGetters['login/userInfo'].userId;
       try {
         const reponse = await fetch(
-          `${VITE_API_URL}/api/giohang/${userId}`
+          `${import.meta.env.VITE_API_URL}/api/giohang/${userId}`
         );
         var products = await reponse.json();
 
@@ -242,7 +242,7 @@ export default {
     async updateCart(context, payload) {
       const toast = getToastInstance();
       await fetch(
-        `${VITE_API_URL}/api/giohang/${payload.id}`,
+        `${import.meta.env.VITE_API_URL}/api/giohang/${payload.id}`,
         {
           method: 'PUT',
           headers: {

@@ -112,7 +112,7 @@ export default {
       await context.dispatch('events/getEvents', null, { root: true });
       try {
         const reponse = await fetch(
-          `${VITE_API_URL}/api/sanpham`
+          `${import.meta.env.VITE_API_URL}/api/sanpham`
         );
         var products = [];
 
@@ -129,7 +129,7 @@ export default {
       context.commit('getProducts', products);
     },
     async addItem(context, payload) {
-      await fetch(`${VITE_API_URL}/api/sanpham`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/sanpham`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ export default {
     },
     async deleteItem(context, payload) {
       await fetch(
-        `${VITE_API_URL}/api/sanpham/${payload}`,
+        `${import.meta.env.VITE_API_URL}/api/sanpham/${payload}`,
         {
           method: 'DELETE',
           headers: {
@@ -182,7 +182,7 @@ export default {
     },
     async updateItem(context, payload) {
       await fetch(
-        `${VITE_API_URL}/api/sanpham/${payload._id}`,
+        `${import.meta.env.VITE_API_URL}/api/sanpham/${payload._id}`,
         {
           method: 'PUT',
           headers: {

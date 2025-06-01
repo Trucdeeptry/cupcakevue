@@ -1,4 +1,3 @@
-require('dotenv').config();
 let timer;
 export default {
   namespaced: true,
@@ -82,7 +81,7 @@ export default {
       await context.dispatch('setLoading', true, { root: true });
 
       const response = await fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.VITE_GOOGLE_KEY}`,
+        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${import.meta.env.VITE_GOOGLE_KEY}`,
         {
           method: 'POST',
           body: JSON.stringify({
@@ -105,7 +104,7 @@ export default {
     async signIn(context, payload) {
       await context.dispatch('setLoading', true, { root: true });
       const response = await fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VITE_GOOGLE_KEY}`,
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_GOOGLE_KEY}`,
         {
           method: 'POST',
           body: JSON.stringify({

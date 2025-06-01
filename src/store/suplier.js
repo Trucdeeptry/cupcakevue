@@ -15,7 +15,7 @@ export default {
     async getSuplier(context) {
       context.dispatch("setLoading", true, { root: true });
       try {
-        const response = await fetch(`${VITE_API_URL}/api/nhacungcap`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/nhacungcap`);
         const Suplier = await response.json();
         context.commit("getSuplier", Suplier);
       } catch (error) {
@@ -25,7 +25,7 @@ export default {
       }
     },
     async addItem(context, payload) {
-      await fetch(`${VITE_API_URL}/api/nhacungcap`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/nhacungcap`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default {
         });
     },
     async deleteItem(context, payload) {
-      await fetch(`${VITE_API_URL}/api/nhacungcap/${payload}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/nhacungcap/${payload}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default {
         });
     },
     async updateItem(context, payload) {
-      await fetch(`${VITE_API_URL}/api/nhacungcap/${payload._id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/nhacungcap/${payload._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

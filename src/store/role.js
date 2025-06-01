@@ -31,7 +31,7 @@ export default {
         await context.dispatch('setLoading', true, { root: true });
         try {
           const reponse = await fetch(
-            `${VITE_API_URL}/api/role`
+            `${import.meta.env.VITE_API_URL}/api/role`
           );
           var roles = await reponse.json();
           context.commit('getRoles', roles);
