@@ -17,7 +17,7 @@ export default {
       context.dispatch('setLoading', true, { root: true });
       try {
         const response = await fetch(
-          'https://apimongodb-4jh8.onrender.com/api/nhanvien'
+          `${VITE_API_URL}/api/nhanvien`
         );
         const employee = await response.json();
         context.commit('getEmployee', employee);
@@ -30,7 +30,7 @@ export default {
     async addItem(context, payload) {
       const toast = getToastInstance();
 
-      await fetch(`https://apimongodb-4jh8.onrender.com/api/nhanvien`, {
+      await fetch(`${VITE_API_URL}/api/nhanvien`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default {
     async deleteItem(context, payload) {
       const toast = getToastInstance();
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/nhanvien/${payload}`,
+        `${VITE_API_URL}/api/nhanvien/${payload}`,
         {
           method: 'DELETE',
           headers: {
@@ -93,7 +93,7 @@ export default {
     async updateItem(context, payload) {
       const toast = getToastInstance();
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/nhanvien/${payload._id}`,
+        `${VITE_API_URL}/api/nhanvien/${payload._id}`,
         {
           method: 'PUT',
           headers: {

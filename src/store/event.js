@@ -35,7 +35,7 @@ export default {
       await context.dispatch('setLoading', true, { root: true });
       try {
         const reponse = await fetch(
-          'https://apimongodb-4jh8.onrender.com/api/danhmuc'
+          `${VITE_API_URL}/api/danhmuc`
         );
         var events = await reponse.json();
         context.commit('getEvents', events);
@@ -46,7 +46,7 @@ export default {
     },
     async addItem(context, payload) {
       const toast = getToastInstance();
-      await fetch(`https://apimongodb-4jh8.onrender.com/api/danhmuc`, {
+      await fetch(`${VITE_API_URL}/api/danhmuc`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export default {
     },
     async deleteItem(context, payload) {
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/danhmuc/${payload}`,
+        `${VITE_API_URL}/api/danhmuc/${payload}`,
         {
           method: 'DELETE',
           headers: {
@@ -95,7 +95,7 @@ export default {
     },
     async updateItem(context, payload) {
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/danhmuc/${payload._id}`,
+        `${VITE_API_URL}/api/danhmuc/${payload._id}`,
         {
           method: 'PUT',
           headers: {

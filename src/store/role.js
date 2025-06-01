@@ -31,7 +31,7 @@ export default {
         await context.dispatch('setLoading', true, { root: true });
         try {
           const reponse = await fetch(
-            'https://apimongodb-4jh8.onrender.com/api/role'
+            `${VITE_API_URL}/api/role`
           );
           var roles = await reponse.json();
           context.commit('getRoles', roles);

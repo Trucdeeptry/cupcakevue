@@ -35,7 +35,7 @@ export default {
       context.dispatch('setLoading', true, { root: true });
       try {
         const reponse = await fetch(
-          'https://apimongodb-4jh8.onrender.com/api/khachhang'
+          `${VITE_API_URL}/api/khachhang`
         );
         const account = await reponse.json();
         context.commit('setAccount', account);
@@ -46,7 +46,7 @@ export default {
     },
     async addItem(context, {info, disableToast}) {
       const toast = getToastInstance();
-      await fetch(`https://apimongodb-4jh8.onrender.com/api/khachhang`, {
+      await fetch(`${VITE_API_URL}/api/khachhang`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export default {
     async deleteItem(context, payload) {
       const toast = getToastInstance();
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/khachhang/${payload}`,
+        `${VITE_API_URL}/api/khachhang/${payload}`,
         {
           method: 'DELETE',
           headers: {
@@ -111,7 +111,7 @@ export default {
     async updateItem(context, payload) {
       const toast = getToastInstance();
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/khachhang/${payload._id}`,
+        `${VITE_API_URL}/api/khachhang/${payload._id}`,
         {
           method: 'PUT',
           headers: {

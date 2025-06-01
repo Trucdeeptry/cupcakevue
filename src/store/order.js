@@ -62,7 +62,7 @@ export default {
       try {
         context.dispatch('setLoading', true, { root: true });
         const response = await fetch(
-          `https://apimongodb-4jh8.onrender.com/api/donhang`,
+          `${VITE_API_URL}/api/donhang`,
           {
             method: 'POST',
             headers: {
@@ -101,7 +101,7 @@ export default {
       context.dispatch('setLoading', true, { root: true });
       try {
         const response = await fetch(
-          'https://apimongodb-4jh8.onrender.com/api/donhang'
+          `${VITE_API_URL}/api/donhang`
         );
         const order = await response.json();
         context.commit('getOrder', order);
@@ -114,7 +114,7 @@ export default {
     },
     async deleteItem(context, payload) {
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/donhang/${payload}`,
+        `${VITE_API_URL}/api/donhang/${payload}`,
         {
           method: 'DELETE',
           headers: {
@@ -143,7 +143,7 @@ export default {
     },
     async updateItem(context, payload) {
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/donhang/${payload._id}`,
+        `${VITE_API_URL}/api/donhang/${payload._id}`,
         {
           method: 'PUT',
           headers: {
@@ -175,7 +175,7 @@ export default {
       context.dispatch('setLoading', true, { root: true });
       try {
         const response = await fetch(
-          'https://apimongodb-4jh8.onrender.com/api/chitietdonhang'
+          `${VITE_API_URL}/api/chitietdonhang'`
         );
         const detailsOrder = await response.json();
         context.commit('getDetailsOrder', detailsOrder);
@@ -187,7 +187,7 @@ export default {
     },
     async updateDetailItem(context, payload) {
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/chitietdonhang/${payload._id}`,
+        `${VITE_API_URL}/api/chitietdonhang/${payload._id}`,
         {
           method: 'PUT',
           headers: {
@@ -217,7 +217,7 @@ export default {
     },
     async deleteDetailItem(context, payload) {
       await fetch(
-        `https://apimongodb-4jh8.onrender.com/api/chitietdonhang/${payload}`,
+        `${VITE_API_URL}/api/chitietdonhang/${payload}`,
         {
           method: 'DELETE',
           headers: {
@@ -246,7 +246,7 @@ export default {
     },
     async addDetailItem(context, { info, disableToast }) {
       context.dispatch('setLoading', true, { root: true });
-      await fetch(`https://apimongodb-4jh8.onrender.com/api/chitietdonhang`, {
+      await fetch(`${VITE_API_URL}/api/chitietdonhang`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
