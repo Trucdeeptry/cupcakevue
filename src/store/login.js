@@ -97,20 +97,20 @@ export default {
         ten_kh: payload.ten_kh,
         email: payload.email,
       };
-      const addItem = await context.dispatch(
-        "account/addItem",
-        {
-          info: info,
-          disableToast: false,
-        },
-        { root: true }
-      );
+
       if (!response.ok) {
         const error = new Error(responseData.message || "Thất bại khi đăng ký");
         await context.dispatch("setLoading", false, { root: true });
         throw error;
       }
-      console.log(responseData);
+      const addItem = await context.dispatch(
+        "account/addItem",
+        {
+          info: info,
+          disableToast: true,
+        },
+        { root: true }
+      );
       await context.dispatch("setLoading", false, { root: true });
       //toast
     },
