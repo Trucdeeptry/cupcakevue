@@ -35,16 +35,16 @@ const store = createStore({
       state.isModal = payload;
     },
     setLoading(state, payload) {
-      if(!payload){
-        state.loadingTimeout = setTimeout(() => {
-          state.isLoading = payload
-        }, 3000);
-      }else{
-        if(state.loadingTimeout){
-          clearTimeout(state.loadingTimeout)
-        }
-        state.isLoading = payload;
-      }
+      // if(!payload){
+      //   state.loadingTimeout = setTimeout(() => {
+      //     state.isLoading = payload
+      //   }, 3000);
+      // }else{
+      //   if(state.loadingTimeout){
+      //     clearTimeout(state.loadingTimeout)
+      //   }
+      //   state.isLoading = payload;
+      // }
     },
     setTransition(state, payload) {
       state.isTransitionActive = payload;
